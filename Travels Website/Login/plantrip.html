@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan a Trip</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image:url("https://th.bing.com/th/id/OIP.6tJFpwVuTqv3RtaqTdoTrQHaEK?w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            transition: transform 0.5s ease-out;
+        }
+
+        h1:hover {
+            transform: translateY(-10px);
+        }
+
+        .form-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .form-section label {
+            font-size: 14px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .form-section input,
+        .form-section select {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            outline: none;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-section input:focus,
+        .form-section select:focus {
+            border: 2px solid #feb47b;
+            box-shadow: 0 0 8px rgba(255, 175, 123, 0.5);
+        }
+
+        .form-section button {
+            background: #feb47b;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-section button:hover {
+            background: #ff7e5f;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+            filter: blur(8px);
+            animation: fadeIn 10s ease-in-out infinite alternate;
+        }
+
+       
+        @keyframes fadeIn {
+            0% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hover-effect {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.05);
+        }
+
+        .hover-effect img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .hover-effect:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hover-effect:hover .overlay {
+            opacity: 1;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: #feb47b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff7e5f;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 768px) {
+            .form-section {
+                grid-template-columns: 1fr;
+            }
+
+            .background-image {
+                width: 150%;
+                height: 150%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Plan Your Dream Trip</h1>
+      
+        <form id="tripForm">
+            <div class="form-section">
+                <div>
+                    <label for="destination">Destination</label>
+                    <select id="destination" required>
+                        <option value="" disabled selected>Select a destination</option>
+                        <option value="Banff">Banff</option>
+                        <option value="Machu Picchu">Machu Picchu</option>
+                        <option value="Lauterbrunnen">Lauterbrunnen</option>
+                        <option value="Santorini">Santorini</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Kyoto">Kyoto</option>
+                        <option value="Paris">Paris</option>
+                        <option value="Bora Bora">Bora Bora</option>
+                        <option value="Iceland">Iceland</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" required />
+                </div>
+
+                <div>
+                    <label for="endDate">End Date</label>
+                    <input type="date" id="endDate" required />
+                </div>
+
+                <div>
+                    <label for="numTravelers">Number of Travelers</label>
+                    <input type="number" id="numTravelers" min="1" max="10" required />
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button type="submit">Plan My Trip</button>
+            </div>
+            <br>
+            <br>
+            <center><B><h1><button type="submit"><a href="./Travels Website/index3.html">BACK TO HOME PAGE</a> </button></h1></B></center>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Responsive Travel Website. All rights reserved. <a href="./Travels Website/contactus.html">Contact Us</a></p>
+    </footer>
+
+    <div class="hover-effect">
+        <img src="https://th.bing.com/th/id/OIP.T42fAIq5_DcRPtGOieyU2gHaEK?w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Trip Image">
+        <div class="overlay">Your Dream Destination</div>
+    </div>
+
+    <div class="background-image" style="background-image: url('');"></div>
+
+    <script>
+        document.getElementById('tripForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const destination = document.getElementById('destination').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const numTravelers = document.getElementById('numTravelers').value;
+
+            if (destination && startDate && endDate && numTravelers) {
+                alert(`Your trip to ${destination} has been planned!\n\nStart Date: ${startDate}\nEnd Date: ${endDate}\nNumber of Travelers: ${numTravelers}`);
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+      
+    </script>
+
+
+</body>
+
+</html>

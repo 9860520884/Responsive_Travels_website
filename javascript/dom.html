@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOCUMET OBJECT MODEL</title>
+</head>
+<body>
+  <DIV>
+    <h4>
+      Charging Text Dynamically<BR>
+        what Happens<BR>
+          Clicking the button changes the text</h4>
+          <h2 id="heading">Hello, World!</h2>
+          <button onclick="changeText()">Click Me</button>
+          <script>
+            function changeText(){
+              document.getElementById("heading").innerText = "Hello, Javascript";
+
+            }
+          </script>
+    </h4>
+  </DIV>
+<div> 
+  <h4>
+    Changing CS Style<BR>
+      What Happens?<BR>
+        Clicking the button changes the text color to blue and increase font size </h4>
+        <p id="para"> This is a Paragraph</p>
+        <button onclick="changeStyle()">Change Color</button>
+        <script>
+          function changeStyle(){
+            document.getElementById("para").style.color = "blue";
+            document.getElementById("para").style.color = "20px";
+
+          }
+        </script>
+  </h4>
+</div>
+
+<div>
+  <h3>
+    Adding an Element(New Paragraph)<BR>
+
+  </h3>
+  <button onclick="addParagraph()">Add Paragraph</button>
+  <div id="container"></div>
+ 
+  <script>
+    function addParagraph(){
+      let newPara = document.createElement("p");
+      newPara.innerText = "This is a new Paragraph! ";
+      document.getElementById("container").appendChild(newPara);
+    }
+  </script>
+</div>
+ <p id="removeMe">Click the button to remove me!</p>
+ <button onclick="removeElement()">Remove</button>
+ <script>
+  function removeElement(){
+    document.getElementById("removeMe").remove();
+  }
+ </script>
+ </div>
+ <input type="text" id="userInput" placeholder="Enter your name:">
+ <button onclick="displayInput()">Submit</button>
+ <p id="output"></p>
+ <script>
+  function displayInput(){
+    let name = document.getElementById("userInput").value;
+    document.getElementById("output").innerText = "Hello, " +name + "!";
+  }
+ </script>
+</div>
+<script>
+  function pageLoaded(){
+    alert("Welcome! The page has Loaded.");
+  }
+  function buttonClicked(){
+    alert("Button was Clicked");
+  }
+</script>
+</head>
+<body onload="pageLoaded()">
+  <h2>Event Handling Example</h2>
+  <button onclick="buttonClicked()">Click Me</button>
+</body>
+</body>
+</html>

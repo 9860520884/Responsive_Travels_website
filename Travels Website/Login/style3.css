@@ -1,0 +1,234 @@
+/* ====== General Reset and Base Styling ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  background-color: #0077b6;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #023e8a;
+}
+
+/* ====== Navbar ====== */
+nav {
+  background-color: #023e8a;
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav .logo h1 {
+  font-size: 24px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #90e0ef;
+}
+
+/* ====== Header Section ====== */
+header {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://th.bing.com/th/id/OIP.Qyhne68aHpgFE0AJ_RllfwHaEk?w=257&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 30px;
+  color: white;
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.sub-header {
+  font-size: 18px;
+  color: #90e0ef;
+}
+
+.story {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.story span i {
+  font-size: 24px;
+  color: #00b4d8;
+}
+
+/* ====== Destination Section ====== */
+.destination-section {
+  padding: 60px 30px;
+  background-color: #ffffff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  color: #0077b6;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.destination-card {
+  background-color: #f0f8ff;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.destination-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #023e8a;
+}
+
+.destination-subtitle {
+  color: #555;
+  font-size: 14px;
+}
+
+/* ====== Trip Details Section ====== */
+.trip-details {
+  padding: 60px 30px;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+}
+
+.trip-card {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  max-width: 400px;
+}
+
+.trip-info h3 {
+  color: #0077b6;
+  margin: 10px 0;
+}
+
+.price-rating {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.rating {
+  color: gold;
+}
+
+/* ====== Subscribe Section ====== */
+.subscribe {
+  padding: 60px 30px;
+  background-color: #90e0ef;
+  text-align: center;
+  color: #023e8a;
+}
+
+.subscribe input[type="email"] {
+  padding: 12px;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.subscribe-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* ====== Footer ====== */
+footer {
+  background-color: #03045e;
+  color: white;
+  padding: 40px 30px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-col h4, .footer-col h3 {
+  margin-bottom: 10px;
+  color: #90e0ef;
+}
+
+.footer-bar {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #555;
+  font-size: 14px;
+}

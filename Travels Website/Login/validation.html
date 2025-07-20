@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation of Javascript</title>
+</head>
+<body>
+  <h1>Code in Javascript</h1>
+  <nav>
+    <a href="#">Home</a>
+
+    <a href="#">Contact</a>
+    <a href="#">Reviews</a>
+    <a href="#">Prices</a>
+  </nav>
+
+  <h2>All the tags</h2>
+  <h3>All details of Javascript</h3>
+
+  <form>
+   Username: <input type="text" name="Username" id="Username" required></input>
+   <br>
+   <br>
+
+   Firstname: <input type="text"  name=" Firstname"  id="Firstname"  required></input>
+   <br>
+   <br>
+   Lastname: <input type="text" name="Lastname"  id="Lastname" required></input>
+   <br>
+   <br>
+   Password: <input type="password" name="password"  id="password" required></input>
+   <br>
+   <br>
+   <button type="submit" onclick="submitinfo()">Submit</button>
+   
+</form>
+<script>
+  function submitinfo(){
+    let Username = document.getElementById('Username').value;
+    let Fname = document.getElementById('Firstname').value;
+    let lname = document.getElementById('password').value;
+
+    alert (Username + Fname + lname);
+  
+  }
+</script>
+
+
+  
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Plans</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      color: white;
+    }
+
+    .pricing-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      max-width: 320px;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .pricing-card h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: 48px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .features li {
+      margin: 15px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      margin-top: 20px;
+      background: #ff4b5c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e84352;
+    }
+  </style>
+</head>
+<body>
+
+<div class="pricing-container">
+
+  <div class="pricing-card">
+    <h2>Basic Plan</h2>
+    <p class="price">$19/month</p>
+    <ul class="features">
+      <li>✔ 10 Destinations</li>
+      <li>✔ Standard Support</li>
+      <li>✔ Email Notifications</li>
+    </ul>
+    <a href="#" class="btn">Choose Plan</a>
+  </div>
+
+  <div class="pricing-card">
+    <h2>Premium Plan</h2>
+    <p class="price">$49/month</p>
+    <ul class="features">
+      <li>✔ Unlimited Destinations</li>
+      <li>✔ Priority Support</li>
+      <li>✔ SMS Notifications</li>
+      <li>✔ Custom Itinerary</li>
+    </ul>
+    <a href="#" class="btn">Choose Plan</a>
+  </div>
+
+  <div class="pricing-card">
+    <h2>Pro Plan</h2>
+    <p class="price">$99/month</p>
+    <ul class="features">
+      <li>✔ All Premium Features</li>
+      <li>✔ 24/7 Support</li>
+      <li>✔ VIP Travel Concierge</li>
+      <li>✔ Exclusive Discounts</li>
+    </ul>
+    <a href="#" class="btn">Choose Plan</a>
+  </div>
+
+</div>
+
+</body>
+</html>

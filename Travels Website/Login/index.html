@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Login Page</h1>
+    <form action="#" method="POST">
+      <div class="form-group">
+        <label for="firstname"></label>
+        email Id: <input type="email" id="email" name="email" placeholder="User Name" required>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="password"></label>
+        Password:<input type="password" id="password" name="password" placeholder="Enter Password" required>
+      </div>
+
+      <button type="submit" class="btn"><a href="/Travels Website/index3.html">Submit</a></button>
+
+      <div class="link">
+        <p>Not Registered? <a href="signup.html">Create an Account</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+
+
+    document.getElementById('signupForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const formData = {
+        firstname: document.getElementById('firstname').value,
+        lastname: document.getElementById('lastname').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      };
+
+      try {
+        const response = await fetch('http://localhost:5000/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+      } catch (error) {
+        alert('Error signing up. Please try again.');
+      }
+    });
+
+  </script>
+</body>
+
+</html>

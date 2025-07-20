@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Now - Multiple Destinations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+     
+  background: linear-gradient(rgba(61, 126, 63, 0.5), rgba(64, 16, 224, 0.5)), url('background.jpg') no-repeat center/cover;
+}
+
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .trip-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .trip-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 400px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .trip-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .trip-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .trip-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .trip-info h3 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    .trip-info p {
+      margin: 10px 0;
+      color: #777;
+    }
+
+    .price-rating {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color:white;
+    }
+    h2{
+      color: rgb(6, 2, 2);
+    }
+
+    input, select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .trip-card {
+        max-width: 100%;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <section class="trip-details">
+      <!-- Destination 1 -->
+      <div class="trip-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaI5DqMuH_XLyJK5Zb-HbCeS8h8oPHVkfUrw&s" alt="Patagonia">
+        <div class="trip-info">
+          <h3>Patagonia</h3>
+          <p>Argentina & Chile</p>
+          <div class="price-rating">
+            <span>$300</span>
+            <span class="rating">★★★★☆</span>
+          </div>
+          <button class="btn" onclick="openBookingForm('Patagonia', '300')">Book Now</button>
+        </div>
+      </div>
+
+      <!-- Destination 2 -->
+      <div class="trip-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrQbuW3Ynh3Gz_3P3O3WnzqTo0mviVlET0Qg&s" alt="Paris">
+        <div class="trip-info">
+          <h3>Paris</h3>
+          <p>France</p>
+          <div class="price-rating">
+            <span>$500</span>
+            <span class="rating">★★★★★</span>
+          </div>
+          <button class="btn" onclick="openBookingForm('Paris', '500')">Book Now</button>
+        </div>
+      </div>
+
+      <!-- Destination 3 -->
+      <div class="trip-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmb72bXa9FcvALGTjaObu5_bOiVRcj-uZHKg&s" alt="Maldives">
+        <div class="trip-info">
+          <h3>Maldives</h3>
+          <p>Indian Ocean</p>
+          <div class="price-rating">
+            <span>$700</span>
+            <span class="rating">★★★★★</span>
+          </div>
+          <button class="btn" onclick="openBookingForm('Maldives', '700')">Book Now</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Booking Form -->
+    <form id="bookingForm" action="/process-payment" method="POST" style="display: none;">
+      <u><center><h2>Complete Your Booking</h2></center></u>
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" name="destination" readonly>
+
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price" readonly>
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="card">Card Number:</label>
+      <input type="text" id="card" name="card" placeholder="1234 5678 9012 3456" required>
+
+      <label for="exp">Expiry Date:</label>
+      <input type="text" id="exp" name="exp" placeholder="MM/YY" required>
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+      <button type="submit" class="btn"><a href="thankspage.html"> Booking</a></button>
+    </form>
+  </div>
+
+  <script>
+    function openBookingForm(destination, price) {
+      document.getElementById('destination').value = destination;
+      document.getElementById('price').value = '$' + price;
+      document.getElementById('bookingForm').style.display = 'flex';
+    }
+  </script>
+
+</body>
+
+</html>
